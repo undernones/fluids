@@ -1,0 +1,6 @@
+
+build/Makefile
+build/CMakeFiles
+build/CMakeCache.txt
+build/*.cmake
+build/headless
