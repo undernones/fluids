@@ -24,11 +24,29 @@ Grid::Grid(unsigned i, unsigned j, unsigned k,
            double x, double y, double z, double h)
     : mPressures(i, j, k)
     , mVelocities(i, j, k)
+    , mTypes(i, j, k)
     , mWidth(x)
     , mHeight(y)
     , mDepth(z)
     , mH(h)
 {
+    for (int j_ = 0; j_ < j; ++j_) {
+        for (int k_ = 0; k_ < k; ++k_) {
+            mTypes(0, j_, k_) = SOLID;
+        }
+    }
+
+    for (int i_ = 0; i_ < i; ++i_) {
+        for (int k_ = 0; k_ < k; ++k_) {
+            mTypes(i_, 0, k_) = SOLID;
+        }
+    }
+
+    for (int i_ = 0; i_ < i; ++i_) {
+        for (int j_ = 0; j_ < j; ++j_) {
+            mTypes(i_, j_, 0) = SOLID;
+        }
+    }
 }
 
 double

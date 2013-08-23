@@ -62,13 +62,19 @@ public:
         return mData.size();
     }
 
-    const T& operator ()(unsigned i, unsigned j, unsigned k) const
+    T& operator ()(unsigned i, unsigned j, unsigned k)
     {
         if (i >= mWidth) throw std::out_of_range("i");
         if (j >= mHeight) throw std::out_of_range("j");
         if (k >= mDepth) throw std::out_of_range("k");
 
         return mData[(i*mHeight*mDepth) + (j*mDepth) + k];
+    }
+
+    const T& operator ()(unsigned i, unsigned j, unsigned k) const
+    {
+        const Array<T>* arr = const_cast<Array<T>*>(this);
+        return const_cast<T&>((*arr)(i, j, k));
     }
 
 private:

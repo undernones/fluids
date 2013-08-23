@@ -6,6 +6,12 @@
 #include "Array.h"
 #include <Eigen>
 
+typedef enum {
+    FLUID,
+    AIR,
+    SOLID,
+} CellType;
+
 class Grid
 {
 public:
@@ -30,6 +36,7 @@ private:
 
     Array<double> mPressures;
     Array<Eigen::Vector3d> mVelocities;
+    Array<CellType> mTypes;
     double mWidth, mHeight, mDepth;
     double mH;
 };
