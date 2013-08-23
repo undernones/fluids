@@ -28,8 +28,8 @@ if (CMAKE_BUILD_TYPE MATCHES "Release")
     add_definitions(-DNDEBUG)
 endif()
 
-#set(SRC cmd/headless/Array.cpp)
-add_executable(headless cmd/headless/main.cpp)
+set(SRC cmd/headless/Grid.cpp)
+add_executable(headless cmd/headless/main.cpp ${SRC})
 
 message(STATUS)
 message(STATUS "--------------------------------------------------------------------------------")

@@ -1,7 +1,7 @@
 // License: See distributed LICENSE file.
 
 #include <iostream>
-#include "Array.h"
+#include "Grid.h"
 
 namespace
 {
@@ -11,26 +11,12 @@ const int ERROR = 1;
 
 }
 
-class Something
-{
-};
-
 int
 main(int argc, char* argv[])
 {
     try {
-        Array<double> arrd1;
-        Array<double> arrd2(4, 5, 2);
-        Array<int> arri;
-        Array<Something> arrs(2, 3, 4);
-
-        std::cout << arrd1.size() << std::endl
-                  << arrd2.size() << std::endl
-                  << arri.size() << std::endl
-                  << arrs.size() << std::endl
-                  ;
-
-        std::cout << arrd1(0, 0, 0);
+        Grid grid(20, 30, 30, 0.05); // 1 x 1.5 x 1.5 meters
+        std::cout << grid.pressure(3, 3, 3) << std::endl;
     } catch (std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
         return ERROR;
